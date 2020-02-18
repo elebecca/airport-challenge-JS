@@ -1,11 +1,18 @@
 'use strict';
 
 describe('Airport', function() {
-  var airport;
+  var airport
+  var plane
   beforeEach(function() {
-    airport = new airport();
+    airport = new Airport();
+    plane = new Plane();
   });
   it ('can keep track of planes', function(){
-    expect(airport.planes()).toEqual([])
+    airport.land(plane)
+    expect(airport.hangar).toContain(plane)
+  });
+  it ('can take off', function(){
+    airport.takeOff(plane)
+    expect(airport.hangar).toEqual([])
   });
 });
